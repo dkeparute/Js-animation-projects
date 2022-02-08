@@ -1,0 +1,61 @@
+/* Menu styles */
+.menu {
+    background-color: rgba(0, 0, 0, 0.5);
+    clip-path: circle(0% at 100% -10%);
+    height: 100%;
+    position: absolute;
+    top: 78px;
+    right: 0;
+    width: 300px;
+    padding: 50px;
+    transition: clip-path 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.menu__list {
+    display: flex;
+    align-items: space-between;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40%;
+    padding: 0;
+    margin: 0;
+}
+.menu__item {
+    list-style: none;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out 0.2s, transform 0.2s ease-in-out 0.2s;
+}
+
+.menu__item--two {
+    transition-delay: 0.5s;
+}
+
+.menu__item--three {
+    transition-delay: 0.7s;
+}
+
+.menu__item--four {
+    transition-delay: 0.9s;
+}
+
+.menu__anchor {
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 40px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.menu__anchor:hover {
+    opacity: 0.6;
+}
+
+/* Active states */
+.menu--active {
+    clip-path: circle(80%);
+}
+
+.menu--active .menu__item {
+    opacity: 1;
+    transform: translateY(0);
+}

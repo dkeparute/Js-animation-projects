@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    align-items: center;
+    background: url("https://images.pexels.com/photos/540518/pexels-photo-540518.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260")
+        no-repeat 50% / cover;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+}
+
+.button {
+    background: none;
+    border: solid 2px #fff;
+    color: #fff;
+    cursor: pointer;
+    font-family: Montserrat, serif;
+    font-size: 20px;
+    padding: 10px 20px;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.overlay__card {
+    background-color: #fff;
+    border-radius: 20px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
+        sans-serif;
+    min-width: 400px;
+    width: 20%;
+    padding: 25px;
+    height: auto;
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out, transform 0.5s ease-in-out;
+    transform: translateY(50px);
+}
+
+.overlay__close {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    cursor: pointer;
+    font-size: 25px;
+    transition: opacity 0.2s ease-in-out;
+}
+.overlay__header,
+.overlay__text {
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.overlay__header {
+    transition-delay: 0.25s;
+}
+
+.overlay__text {
+    transition-delay: 0.5s;
+}
+/* Hover */
+
+.button:hover {
+    opacity: 0.6;
+}
+
+.overlay__close:hover {
+    opacity: 0.6;
+}
+
+/* Active states */
+.overlay--active {
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: all;
+}
+
+.overlay--active .overlay__card {
+    opacity: 1;
+}
+
+.overlay--active .overlay__card,
+.overlay--active .overlay__header,
+.overlay--active .overlay__text {
+    opacity: 1;
+    transform: translateY(0px);
+}
